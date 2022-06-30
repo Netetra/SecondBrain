@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  api:
+    container_name: SecondBrain-API
+    build: 
+      context: SecondBrain-API
+      dockerfile: dockerfile
+    volumes:
+      - ./SecondBrain-API/src:/home/
+    ports:
+      - '8080:8080'
+    networks:
+      - host
+    restart: always
+  nginx:
+    container_name: SecondBrain-nginx
+    build:
+      context: SecondBrain-nginx
+      dockerfile: dockerfile
+    volumes:
+      - ./SecondBrain-nginx/src:/usr/share/nginx/html
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - host
+    restart: always
+
+networks:
+  host:
