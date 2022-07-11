@@ -19,7 +19,7 @@ services:
       context: SecondBrain-nginx
       dockerfile: dockerfile
     volumes:
-      - ./SecondBrain-nginx/src:/usr/share/nginx/html
+      - ./SecondBrain-nginx/src:/var/www/html/
     ports:
       - 80:80
       - 443:443
